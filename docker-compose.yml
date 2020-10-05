@@ -29,4 +29,4 @@ services:
 #            - /dev/nvidia0:/dev/nvidia0
         depends_on:
             - bodypix
-        entrypoint: [ 'python3', '-u', 'fake.py', '-B', 'http://bodypix:9000/', "--no-foreground"]
+        entrypoint: [ 'python3', '-u', 'fake.py', '-B', 'http://bodypix:9000/', "--no-foreground", "--no-background", "--background-blur=50"]
