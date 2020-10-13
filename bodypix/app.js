@@ -1,18 +1,19 @@
 
+const ARCHITECTURE = process.env.ARCHITECTIRE || 'MobileNetV1';
 const HFLIP = process.env.BPHFLIP || false;
 const IRES = parseFloat(process.env.BPIRES) || 0.5;
 const MULTI = parseFloat(process.env.BPMULTI) || 0.75;
 const OUTSTRIDE = parseInt(process.env.BPOUTSTRIDE) || 16;
 const PORT = process.env.BPPORT || 9000;
 const QBYTES = parseInt(process.env.BPQBYTES) || 2;
-const SEGTHRES = parseFloat(process.env.BPSEGTHRES) || 0.75;t PORT = process.env.PORT || 9000;
+const SEGTHRES = parseFloat(process.env.BPSEGTHRES) || 0.75;
 const tf = tensorflow();
 
 const bodyPix = require('@tensorflow-models/body-pix');
 const http = require('http');
 (async () => {
     const net = await bodyPix.load({
-        architecture: 'MobileNetV1',
+        architecture: ARCHITECTURE,
         outputStride: OUTSTRIDE,
         multiplier: MULTI,
         quantBytes: QBYTES,

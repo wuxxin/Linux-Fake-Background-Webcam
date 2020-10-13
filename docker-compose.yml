@@ -3,6 +3,11 @@ services:
     bodypix:
         image: bodypix
         init: true
+        environment:
+            ARCHITECTURE: ResNet50
+            IRES: 1
+            MULTI: 1
+            QBYTES: 4
         build:
             context: ./bodypix
         read_only: true
